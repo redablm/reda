@@ -18,8 +18,8 @@ const Quiz = ({ questions, onQuizComplete }) => {
         if (prevTime <= 1) {
           clearInterval(timer);
           setIsTimeUp(true);
-          alert(`Temps écoulé! Votre score final est ${score} sur ${questions.length}`);
-          onQuizComplete(score); // Appel de la fonction de callback
+          alert(`Time's up! Your final score is ${score} out of ${questions.length}`);
+          onQuizComplete(score); // Call the callback function
           return 0;
         }
         return prevTime - 1;
@@ -38,8 +38,8 @@ const Quiz = ({ questions, onQuizComplete }) => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
       const finalScore = score + (isCorrect ? 1 : 0);
-      alert(`Quiz terminé! Votre score final est ${finalScore} sur ${questions.length}`);
-      onQuizComplete(finalScore); // Passer le score final après le quiz
+      alert(`Quiz finished! Your final score is ${finalScore} out of ${questions.length}`);
+      onQuizComplete(finalScore); // Pass the final score after the quiz
       setCurrentQuestionIndex(0);
       setScore(0);
     }
@@ -47,12 +47,12 @@ const Quiz = ({ questions, onQuizComplete }) => {
 
   return (
     <div>
-      <h2>Temps restant: {timeRemaining}s</h2>
+      <h2>Time remaining: {timeRemaining}s</h2>
       <h2>Score: {score}</h2>
       {currentQuestionIndex < questions.length ? (
         <Question question={questions[currentQuestionIndex]} onAnswer={handleAnswer} />
       ) : (
-        <div>Quiz terminé! Votre score final est {score} sur {questions.length}</div>
+        <div>Quiz finished! Your final score is {score} out of {questions.length}</div>
       )}
     </div>
   );

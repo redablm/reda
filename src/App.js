@@ -1,6 +1,9 @@
 import Classement from "./Classement";
 import Home from "./Home";
 import Info from "./Info";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './style.css';
 import Login from "./Login";
 import { Route,Routes } from "react-router-dom";
 

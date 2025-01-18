@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -11,27 +10,27 @@ function Login() {
   function Sign(event) {
     event.preventDefault();
 
-    // Récupérer les utilisateurs existants depuis le localStorage
+    // Retrieve existing users from localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Créer un nouvel objet utilisateur avec les informations personnelles
+    // Create a new user object with personal information
     const newUser = {
       firstName,
       lastName,
       email,
-      quizResults: [],  // Initialiser un tableau pour les résultats de quiz
+      quizResults: [],  // Initialize an array for quiz results
     };
 
-    // Ajouter le nouvel utilisateur au tableau
+    // Add the new user to the array
     users.push(newUser);
 
-    // Sauvegarder le tableau mis à jour dans le localStorage
+    // Save the updated array to localStorage
     localStorage.setItem('users', JSON.stringify(users));
 
-    // Définir l'email de l'utilisateur actuel dans le localStorage
+    // Set the current user's email in localStorage
     localStorage.setItem('currentUserEmail', email);
 
-    // Rediriger vers la page Home
+    // Redirect to the Home page
     navigate("/Home");
   }
 
@@ -43,31 +42,31 @@ function Login() {
         </h1>
         <form onSubmit={Sign}>
           <div className="mb-3">
-            <label htmlFor="firstName" className="form-label">Prénom</label>
+            <label htmlFor="firstName" className="form-label text-white">First Name</label>
             <input
               type="text"
               className="form-control"
               id="firstName"
-              placeholder="Votre prénom"
+              placeholder="Your first name"
               required
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="lastName" className="form-label">Nom</label>
+            <label htmlFor="lastName" className="form-label text-white">Last Name</label>
             <input
               type="text"
               className="form-control"
               id="lastName"
-              placeholder="Votre nom"
+              placeholder="Your last name"
               required
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">Email</label>
+            <label htmlFor="email" className="form-label text-white">Email</label>
             <input
               type="email"
               className="form-control"

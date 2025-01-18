@@ -1,52 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import de useNavigate
+import { useNavigate } from 'react-router-dom';
 
-const Classement = () => {
+const Ranking = () => {
   const [users, setUsers] = useState([]);
   const [sortedUsers, setSortedUsers] = useState([]);
-  const navigate = useNavigate(); // Utilisation de useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
     setUsers(storedUsers);
 
-    // Trier les utilisateurs par leur meilleur score global
+    // Sort users by their highest total score
     const sorted = storedUsers.sort((a, b) => {
       const totalScoreA = a.quizResults.reduce((sum, result) => sum + result.score, 0);
       const totalScoreB = b.quizResults.reduce((sum, result) => sum + result.score, 0);
-      return totalScoreB - totalScoreA; // Tri du plus grand au plus petit
+      return totalScoreB - totalScoreA; // Sorting from highest to lowest
     });
 
     setSortedUsers(sorted);
   }, []);
 
-  // Fonction de navigation vers la page Info
+  // Function to navigate to the Info page
   const handleNavigateToInfo = () => {
     navigate("/Info");
   };
 
   return (
     <div className="container py-5">
-      <h1 className="text-center mb-4">Classement Général</h1>
+      <h1 className="text-center mb-4">General Ranking</h1>
       {sortedUsers.length > 0 ? (
         <div className="table-responsive">
           <table className="table table-striped table-bordered">
             <thead>
               <tr>
-                <th>Rang</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Score Total</th>
-                <th>Catégorie</th>
+                <th>Rank</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Total Score</th>
+                <th>Category</th>
               </tr>
             </thead>
             <tbody>
               {sortedUsers.map((user, index) => {
-                // Calculer le score total de l'utilisateur
+                // Calculate the total score of the user
                 const totalScore = user.quizResults.reduce((sum, result) => sum + result.score, 0);
-
-                // Sélectionner la première catégorie des résultats de l'utilisateur
-                const category = user.quizResults.length > 0 ? user.quizResults[0].category : 'Non spécifiée';
+                const category = user.quizResults.length > 0 ? user.quizResults[0].category : 'Not specified';
 
                 return (
                   <tr key={user.email}>
@@ -62,21 +60,19 @@ const Classement = () => {
           </table>
         </div>
       ) : (
-        <p className="alert alert-warning text-center">Aucun utilisateur trouvé.</p>
+        <p className="alert alert-warning text-center">No users found.</p>
       )}
-
-      {/* Bouton pour revenir à la page Info */}
       <div className="mt-3">
         <button
           type="button"
           className="btn btn-primary btn-lg w-100"
           onClick={handleNavigateToInfo}
         >
-          Revenir à la page Info
+          Back to Info Page
         </button>
       </div>
     </div>
   );
 };
 
-export default Classement;
+export default Ranking;

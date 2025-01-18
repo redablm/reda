@@ -25,7 +25,7 @@ const Info = () => {
     navigate("/Home");
   };
 
-  // Function to navigate to the Classement page
+  // Function to navigate to the Ranking page
   const handleNavigateToClassement = () => {
     navigate("/Classement", { state: { category: 'exampleCategory' } });  // Example category, replace with the actual category
   };
@@ -33,39 +33,39 @@ const Info = () => {
   return (
     <div className="container mt-5">
       <div className="card shadow-lg p-4">
-        <h1 className="text-center mb-4">Informations Sauvegardées</h1>
+        <h1 className="text-center mb-4">Saved Information</h1>
         {users.length > 0 ? (
           <div>
             {users.map((user, index) => (
               <div key={index} className="mb-3">
-                <p><strong>Prénom:</strong> {user.firstName}</p>
-                <p><strong>Nom:</strong> {user.lastName}</p>
+                <p><strong>First Name:</strong> {user.firstName}</p>
+                <p><strong>Last Name:</strong> {user.lastName}</p>
                 <p><strong>Email:</strong> {user.email}</p>
-                <h3>Résultats du Quiz</h3>
+                <h3>Quiz Results</h3>
                 {user.quizResults.length > 0 ? (
                   user.quizResults.map((result, idx) => (
                     <div key={idx}>
-                      <p><strong>Catégorie:</strong> {result.category || 'Non spécifiée'}</p>
+                      <p><strong>Category:</strong> {result.category || 'Not specified'}</p>
                       <p><strong>Score:</strong> {result.score}</p>
                       <hr />
                     </div>
                   ))
                 ) : (
-                  <p>Aucun résultat disponible.</p>
+                  <p>No results available.</p>
                 )}
                 <button
                   type="button"
                   className="btn btn-danger w-100 mb-2"
                   onClick={() => handleDeleteUser(index)}
                 >
-                  Supprimer cet utilisateur
+                  Delete this user
                 </button>
                 <hr />
               </div>
             ))}
           </div>
         ) : (
-          <p className="alert alert-warning text-center">Aucune information sauvegardée.</p>
+          <p className="alert alert-warning text-center">No saved information.</p>
         )}
       </div>
 
@@ -75,7 +75,7 @@ const Info = () => {
           className="btn btn-danger btn-lg w-100"
           onClick={handleClearHistory}
         >
-          Initialiser l'historique (Supprimer tous les utilisateurs)
+          Reset History (Delete all users)
         </button>
       </div>
 
@@ -85,18 +85,18 @@ const Info = () => {
           className="btn btn-primary btn-lg w-100"
           onClick={handleNavigateBack}
         >
-          Revenir au menu principal
+          Back to Main Menu
         </button>
       </div>
 
-      {/* Add a button to navigate to the Classement page */}
+      {/* Add a button to navigate to the Ranking page */}
       <div className="mt-3">
         <button
           type="button"
           className="btn btn-info btn-lg w-100"
           onClick={handleNavigateToClassement}
         >
-          Voir le Classement
+          View Ranking
         </button>
       </div>
     </div>

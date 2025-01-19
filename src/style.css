@@ -404,10 +404,12 @@ h1 {
     .card {
         margin-bottom: 15px;
     }
+    
 
     .btn {
         padding: 10px 20px;
     }
+    
 
     .category-title {
         font-size: 2rem;
@@ -421,3 +423,92 @@ h1 {
         font-size: 0.9rem;
     }
 }
+
+
+/* Feedback */
+.feedback {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    animation: bounceIn 1s ease-out;
+}
+
+.emoji-icon {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s;
+    animation: bounceIn 1s ease-out;
+}
+
+.emoji-icon:hover {
+    transform: scale(1.2) rotate(15deg); /* Légère rotation au survol */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Media Queries pour rendre le design responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .question-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+

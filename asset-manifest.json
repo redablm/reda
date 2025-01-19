@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/reda/static/css/main.fcedfe04.css",
-    "main.js": "/reda/static/js/main.21289663.js",
+    "main.js": "/reda/static/js/main.8c8403ec.js",
     "static/media/3.png": "/reda/static/media/3.bbc6060849eb191176d2.png",
     "index.html": "/reda/index.html",
     "main.fcedfe04.css.map": "/reda/static/css/main.fcedfe04.css.map",
-    "main.21289663.js.map": "/reda/static/js/main.21289663.js.map"
+    "main.8c8403ec.js.map": "/reda/static/js/main.8c8403ec.js.map"
   },
   "entrypoints": [
     "static/css/main.fcedfe04.css",
-    "static/js/main.21289663.js"
+    "static/js/main.8c8403ec.js"
   ]
 }

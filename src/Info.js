@@ -38,15 +38,15 @@ const Info = () => {
           <div>
             {users.map((user, index) => (
               <div key={index} className="mb-3">
-                <p><strong>First Name:</strong> {user.firstName}</p>
-                <p><strong>Last Name:</strong> {user.lastName}</p>
-                <p><strong>Email:</strong> {user.email}</p>
-                <h3>Quiz Results</h3>
+                <p className='text-white'><strong>First Name:</strong> {user.firstName}</p>
+                <p className='text-white'><strong>Last Name:</strong> {user.lastName}</p>
+                <p className='text-white'><strong>Email:</strong> {user.email}</p>
+                <h3 className='text-warning'>Quiz Results</h3>
                 {user.quizResults.length > 0 ? (
                   user.quizResults.map((result, idx) => (
                     <div key={idx}>
-                      <p><strong>Category:</strong> {result.category || 'Not specified'}</p>
-                      <p><strong>Score:</strong> {result.score}</p>
+                      <p className='text-white'><strong >Category:</strong> {result.category || 'Not specified'}</p>
+                      <p className='text-white'><strong >Score:</strong> {result.score}</p>
                       <hr />
                     </div>
                   ))
